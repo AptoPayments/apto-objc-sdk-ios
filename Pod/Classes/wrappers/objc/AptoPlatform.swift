@@ -102,14 +102,28 @@ public extension AptoPlatform {
     }
   }
 
-  @objc(createUserWithData:completion:)
-  func createUser(userData: DataPointList, callback: @escaping (_ user: ShiftUser?, _ error: NSError?) -> Void) {
-    createUser(userData: userData) { result in
+  @objc(createUserWithData:custodianUid:completion:)
+  func createUser(userData: DataPointList, custodianUid: String?, callback: @escaping (_ user: ShiftUser?, _ error: NSError?) -> Void) {
+    createUser(userData: userData, custodianUid: custodianUid) { result in
       switch result {
       case .failure(let error):
         callback(nil, error)
       case .success(let user):
         callback(user, nil)
+      }
+    }
+  }
+
+  @objc(issueCardWith:custodian:additionalFields:completion:)
+  func issueCard(cardProduct: AptoCardProduct, custodian: Custodian?, additionalFields: [String: AnyObject]?,
+                 callback: @escaping (_ card: Card?, _ error: NSError?) -> Void) {
+    issueCard(cardProduct: cardProduct.swiftVersion, custodian: custodian,
+              additionalFields: additionalFields) { result in
+      switch result {
+      case .failure(let error):
+        callback(nil, error)
+      case .success(let card):
+        callback(card, nil)
       }
     }
   }
