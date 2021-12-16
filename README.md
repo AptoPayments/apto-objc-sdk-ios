@@ -1,3 +1,5 @@
+# THIS REPO HAS BEEN DEPRECATED
+
 # Apto SDK for iOS [![CocoaPods](https://img.shields.io/cocoapods/v/AptoSDK.svg?style=plastic)](https://cocoapods.org/pods/AptoSDK)
 
 Welcome to the Apto iOS SDK. This SDK gives access to the Apto's mobile API, designed to be used from a mobile app. Using this SDK there's no need to integrate the API itself, all the API endpoints are exposed as simple to use methods, and the data returned by the API is properly encapsulated and easy to access.
